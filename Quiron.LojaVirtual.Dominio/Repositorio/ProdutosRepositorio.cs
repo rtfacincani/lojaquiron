@@ -12,15 +12,15 @@ namespace Quiron.LojaVirtual.Dominio.Repositorio
     public class ProdutosRepositorio
     {
         private readonly EfDbContext _context = new EfDbContext();
-        public IEnumerable<> Produtos
+        public IEnumerable<Produto> Produtos
         {
             get { return _context.Produtos; }
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBulder)
+       /* protected override void onModelCreating(DbModelBuilder modelBulder)
         {
             modelBulder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBulder.Entity<Produto>().ToTable("Produtos");
-        }
+        }*/
     }
 }
