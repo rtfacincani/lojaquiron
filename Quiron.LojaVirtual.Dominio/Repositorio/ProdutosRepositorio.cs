@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Quiron.LojaVirtual.Dominio.Entidades;
 
+
 namespace Quiron.LojaVirtual.Dominio.Repositorio
 {
     public class ProdutosRepositorio
@@ -17,10 +18,5 @@ namespace Quiron.LojaVirtual.Dominio.Repositorio
             get { return _context.Produtos; }
         }
 
-         protected override void OnModelCreating(DbModelBuilder modelBulder)
-         {
-             modelBulder.Conventions.Remove<PluralizingTableNameConvention>();
-             modelBulder.Entity<Produto>().ToTable("Produtos");
-         } 
     }
 }
