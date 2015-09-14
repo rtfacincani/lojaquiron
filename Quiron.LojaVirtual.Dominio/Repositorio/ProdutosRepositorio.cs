@@ -17,10 +17,10 @@ namespace Quiron.LojaVirtual.Dominio.Repositorio
             get { return _context.Produtos; }
         }
 
-       /* protected override void onModelCreating(DbModelBuilder modelBulder)
-        {
-            modelBulder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBulder.Entity<Produto>().ToTable("Produtos");
-        }*/
+         protected override void OnModelCreating(DbModelBuilder modelBulder)
+         {
+             modelBulder.Conventions.Remove<PluralizingTableNameConvention>();
+             modelBulder.Entity<Produto>().ToTable("Produtos");
+         } 
     }
 }
