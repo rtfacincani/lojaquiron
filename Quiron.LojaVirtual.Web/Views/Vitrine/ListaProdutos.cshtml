@@ -1,34 +1,13 @@
 ﻿@using Quiron.LojaVirtual.Web.HtlmHerpers
 @model Quiron.LojaVirtual.Web.Models.ProdutosViewModel
 
-<h2>Lista de Produtos</h2>
-<table class="table">
-    <tr>
-        <th>
-            Nome
-        </th>
-        <th>
-            Descrição
-        </th>
-        <th>
-            Preço
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var p in Model.Produtos)
-    {
-    <tr>
-        <td>
-            @p.Nome
-        </td>
-        <td>
-            @p.Descricao
-        </td>
-        <td>
-            @p.Preco.ToString("c")
-        </td>
-    </tr>
-    }
-    @Html.PageLinks(Model.Paginacao, x => Url.Action("ListaProdutos", new { pagina = x }))
+@foreach (var p in Model.Produtos)
+{
+    <div>
+        <h3>@p.Nome</h3>
+        @p.Descricao
+        <h3>@p.Preco.ToString("c")</h3>
+    </div>        
+}
+@Html.PageLinks(Model.Paginacao, x => Url.Action("ListaProdutos", new { pagina = x }))
     
-</table>
