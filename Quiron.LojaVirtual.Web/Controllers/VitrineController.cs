@@ -12,10 +12,10 @@ namespace Quiron.LojaVirtual.Web.Controllers
 
         private ProdutosRepositorio _repositorio;
 
-        public int ProdutosPorPagina = 8;
+        public int ProdutosPorPagina = 5;
 
 
-        public ActionResult ListaProdutos(string categoria,int pagina = 1)
+        public ViewResult ListaProdutos(string categoria,int pagina = 1)
         {
             _repositorio = new ProdutosRepositorio();
 
@@ -32,7 +32,7 @@ namespace Quiron.LojaVirtual.Web.Controllers
                 {
                     PaginaAtual = pagina,
                     ItensPorPagina = ProdutosPorPagina,
-                    ItensTotal = _repositorio.Produtos.Count()
+                    ItensTotal = categoria == null ? _repositorio.Produtos.Count() : _repositorio.Produtos.Count(e => e.Categoria == categoria)
                 },
 
                 CategoriaAtual = categoria
